@@ -11,3 +11,8 @@ $programming3 = array_merge($programming2,$programming);
 echo "<pre>";
 print_r($programming3);
 echo "</pre>";
+
+unset($programming3[6]);
+echo "<pre>";
+print_r($programming3);
+echo "</pre>";

@@ -2,9 +2,16 @@
 if (isset($_POST['upload'])){
     $file_tmp_name = $_FILES['file']["tmp_name"];
     $file_name = $_FILES['file']["name"];
+    $file_type = $_FILES['file']["type"];
     echo $file_tmp_name;
-    $save_file = 'upload/'.$file_name;
-    move_uploaded_file($file_tmp_name,$save_file);
+    echo $file_type;
+    $save_file = 'upload/'.time().$file_name;
+    if ($file_type == "image/png" or $file_type == "image/jpeg"){
+        move_uploaded_file($file_tmp_name,$save_file);
+    }else{
+        echo "<script>alert('Can only access PNG')</script>";
+    }
+
 }
 ?>
 
